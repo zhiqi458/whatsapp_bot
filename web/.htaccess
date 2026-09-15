@@ -1,13 +1,14 @@
-# 禁止访问敏感情文件和 include 目录
+# 允许访问所有文件（包括隐藏文件）
 <FilesMatch "^\.">
     Order allow,deny
-    Deny from all
+    Allow from all
 </FilesMatch>
 
+# 允许访问 includes 目录
 <Directory "includes">
-    Order deny,allow
-    Deny from all
+    Order allow,deny
+    Allow from all
 </Directory>
 
-# 屏蔽目录浏览
-Options -Indexes
+# 开启目录浏览（允许列出文件夹内容）
+Options +Indexes
